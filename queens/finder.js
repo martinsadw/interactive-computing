@@ -7,8 +7,12 @@ function BacktrackingFinder(board, results)
     this.currentSolution = [];
     this.solutions = [];
 
+    this.running = false;
+    this.delay = 100;
+
     this.reset = function()
     {
+        this.running = false;
         this.board.reset();
 
         while (this.results.firstChild)
@@ -77,6 +81,27 @@ function BacktrackingFinder(board, results)
             this.board.drawBoard();
         }
     }
+
+    this.start = function()
+    {
+        if (this.running == true)
+            return;
+
+        this.running = true;
+        this.stepInterval();
+    }
+    this.stop = function()
+    {
+        this.running = false;
+    }
+    this.stepInterval = function()
+    {
+        if (this.running)
+        {
+            this.step();
+            setTimeout(() => { this.stepInterval() }, this.delay);
+        }
+    }
 }
 
 var elem = document.getElementById('results-list');
@@ -92,15 +117,14 @@ function step()
     finder.step();
 }
 
-var interval;
 function start()
 {
-    interval = setInterval(step, 1);
+    finder.start();
 }
 
 function stop()
 {
-    clearInterval(interval);
+    finder.stop();
 }
 
 function setStateFactory(board, state)
