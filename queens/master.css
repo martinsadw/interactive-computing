@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+    background-color: #e5ebf1;
+}
+
+#container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: #504f4f;
+    margin-bottom: 20px;
+}
+
+#board {
+    padding: 10px;
+}
+
+#board svg {
+    background-color: #ccc;
+    border: 1px solid #353535;
+}
+
+#board .cell.white {
+    fill: #fad49e;
+}
+
+#board .cell.black {
+    fill: #e89c30;
+}
+
+#board .cell.attacked.white {
+    fill: #efefef;
+}
+
+#board .cell.attacked.black {
+    fill: #a2a2a2;
+}
+
+#board .cell.invalid {
+    fill: #f6a5a5;
+}
+
+/* #board .cell.invalid.white {
+    fill: #f6a5a5;
+} */
+
+/* #board .cell.invalid.black {
+    fill: #f26161;
+} */
+
+#board .queen {
+    fill: #ca3328;
+    pointer-events: none;
+}
+
+.flex-container {
+    display: flex;
+}
+
+#results {
+    flex: 1;
+    height: 505px;
+    background-color: #737373;
+    border-left: 1px solid #353535;
+}
+
+#results ul {
+    padding: 0;
+    margin: 0;
+}
+
+#results ul li {
+    list-style-type: none;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #f9dddd;
+    border-radius: 4px;
+}
+
+.scrollbox-container {
+    position: relative;
+}
+
+.scrollbox-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 18px;
+    height: 30px;
+    background-color: black;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+.scrollbox-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 18px;
+    height: 30px;
+    background-color: black;
+    background: linear-gradient(to top, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+.scrollbox {
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    overflow-y: scroll;
+}
+
+.solution {
+
+}
+
+#options {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    flex: 1;
+    font-size: 1em;
+    padding: 12px;
+    margin: 0 8px;
+    background-color: #e24236;
+    border: 1px solid #e24236;
+    color: #ffffff;
+    border-radius: 8px;
+    width: 120px;
+}
+button:hover {
+    background-color: #e06157;
+}
+button:active {
+    background-color: #f77b71;
+    outline: 0;
+}
+button:focus {
+    outline: 0;
+}
+button::-moz-focus-inner {
+    border: 0;
+}
